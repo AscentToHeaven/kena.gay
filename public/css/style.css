@@ -1,3 +1,7 @@
+@font-face {
+  font-family: IBMVGA8;
+  src: url(/fonts/IBM_BIOS.ttf) format('truetype');
+}
 /* CRT effect begin */
 @keyframes flicker {
   0% {
@@ -185,4 +189,18 @@
 .seele {
   background-image: url(/assets/seele.jpg);
   background-size: cover;
+}
+
+.tapes {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  #tape1 {
+    x: 70%
+  }
+}
+
+p, h1, h2, h3, h4, h5 {
+  font-family: IBMVGA8;
 }

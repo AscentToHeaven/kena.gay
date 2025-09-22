@@ -1,15 +1,15 @@
 +++
-title = "Ascent to Heaven"
-description = "The welcome page"
+title = "ascent to heaven"
+description = "the welcome page"
 +++
 
-# We're undergoing renovations
+# we're undergoing renovations
 
-Please kindly sit by while the we work to restore this page.
+please kindly sit by while the we work to restore this page.
 
--NERV
+-nerv
 
-- [Blood](/blood/)
+- [blood](/blood/)
 
 ^Matrix: @kena4930:matrix.org^
 Email: kena@kena.gay^
