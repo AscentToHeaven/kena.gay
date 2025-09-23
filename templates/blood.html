@@ -3,10 +3,24 @@
 <head>
   <meta charset="utf-8">
     <title><h1>{{config.title}}</h1></title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/blood.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
 </head>
 
-<body style="background-image: url(../assets/seele.jpg); background-size: cover;">
+<style>
+p, h1, h2, h3 {
+  color: white;
+}
+</style>
+
+<body id="blood-body" class="crt">
+  {% for p in section.pages %}
+  <div>
+    <h1>{{p.title}}</h1>
+    {{p.content | safe}}
+  </div>
+  {% endfor %}
+  {% block content %}
+  {% endblock content %}
 </body>
 </html> 

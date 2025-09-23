@@ -1,22 +1,21 @@
 <!DOCTYPE html> 
 <html>
-<head>
-  <meta charset="utf-8">
-    <title><h1>{{config.title}}</h1></title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
-</head>
+    <head>
+      <meta charset="utf-8">
+        <title><h1>{{config.title}}</h1></title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    </head>
 
-<body class="crt">
-    <header><h1>{{section.title}}</h1></header> 
-    <main>
-      {{section.content | safe}}
-    </main>
-    <div class="tapes">
-    <div id="tape1"> <a href="/blood/" id="tape1"><img src="/assets/tape1.png" alt="tape-profile"><br>Who am I?</a> </div>
-    <!-- <a href="/blood/"><img src="/assets/tape1.png" alt="tape-profile"></a> -->
-    <!-- <a href="/blood/"><img src="/assets/tape1.png" alt="tape-profile"></a> -->
-    <!-- <a href="/blood/"><img src="/assets/tape1.png" alt="tape-profile"></a> -->
-    </div>
-</body>
+
+    <body class="crt">
+        <header><h1>Ascent to Heaven</h1></header> 
+        <main>
+            <div class="box main-page"><p>We are currently undergoind maintenence, check back at a later time</p></div>
+            <!-- <a href="/test/">- Testing</a> -->
+        </main>
+        <div class="lyric">
+            {{ section.content | safe }}
+        </div>
+    </body>
 </html>
