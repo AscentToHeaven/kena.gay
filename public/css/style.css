@@ -25,20 +25,3 @@ body {
   top: 0;
   right: 0;
 }
-
-.tape-img {
-  width: auto;
-  height: 400px;
-}
-
-.tape-img:hover {
-  height: 440px;
-  filter:brightness(1.4);
-}
-.tape-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  gap: 0px;
-  height: 440px;
-}
