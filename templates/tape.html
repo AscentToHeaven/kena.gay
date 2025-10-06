@@ -1,0 +1,29 @@
+
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ section.title }}</title>
+    <link rel="stylesheet" href="/css/tapes.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+</head>
+
+  <style>
+    p, h1, h2, h3 {
+      color: white;
+    }
+    body {
+      background-image: url('{{ get_url(path=section.extra.background_image) }}');
+    }
+  </style>
+
+  <body class="crt">
+    <div class="cover">
+      <img src="{{ get_url(path=section.extra.tape_cover) }}" alt="">
+    </div>
+    <div class="text">
+      {{ section.content | safe }}
+    </div>
+  </body>
+
+</html> 

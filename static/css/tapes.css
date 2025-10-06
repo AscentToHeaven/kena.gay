@@ -1,0 +1,31 @@
+@import 'basics.css';
+
+:root {
+  --cover-width: 400px;
+  --border-width: 5px;
+}
+
+* {
+  padding: 5px;
+}
+body {
+  /* display: flex; */
+  justify-content: flex-start;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+}
+
+.cover {
+  border-width: 5px;
+  background-color: white;
+  width: calc(var(--cover-width) + calc(var(--border-width) * 2));
+  height: calc(var(--cover-width) + calc(var(--border-width) * 2));
+
+  img {
+    width: var(--cover-width);
+    height: var(--cover-width);
+  }
+}
+
+
