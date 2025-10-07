@@ -8,3 +8,11 @@ tape_cover = "/assets/tape/cover/afut.jpg"
  
 # Ants From Up There 
 ## Black Country, New Road
+
+> Concorde, this organ
+The new one I'm formin'
+It's grown so persistent on you by the morning
+
+I love this record beyond words, Isaac puts so much emotion and love into each line and the band puts so much care into
+everything.
+

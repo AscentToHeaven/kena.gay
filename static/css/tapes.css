@@ -8,12 +8,14 @@
 * {
   padding: 5px;
 }
+
 body {
-  /* display: flex; */
+  display: flex;
   justify-content: flex-start;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
+  color: white;
 }
 
 .cover {
@@ -28,4 +30,15 @@ body {
   }
 }
 
+  blockquote {
+    color: #cccccc; 
+    font-style: italic;
+  }
 
+p, h1, h2, h3, h4 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.text {
+  padding-right: 40px;
+}
