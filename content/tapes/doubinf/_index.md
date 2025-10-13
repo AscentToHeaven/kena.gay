@@ -4,6 +4,7 @@ template = "tape.html"
 [extra]
 background_image = "/assets/tape/bkg/doubinf.png"
 tape_cover = "/assets/tape/cover/doubinf.jpg"
+artist = "Big Theif"
 +++
 
 # Double Infinity

@@ -16,11 +16,21 @@
   </style>
 
   <body class="crt">
-    <div class="cover">
-      <img src="{{ get_url(path=section.extra.tape_cover) }}" alt="">
+    <div id="main-container">
+      <div class="cover">
+        <img src="{{ get_url(path=section.extra.tape_cover) }}" alt="">
+      </div>
+      <div>
+        {{ section.content | safe }}
+      </div>
     </div>
-    <div class="text">
-      {{ section.content | safe }}
+    <div>
+      <h1>{{ section.title }} - {{ section.extra.artist }}</h1>
+    {% for page in section.pages %}
+      <div class="body-text">
+        {{ page.content | safe }}
+      </div>
+    {% endfor %}
     </div>
   </body>
 
