@@ -7,8 +7,17 @@
         <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     </head>
 
+    <script>
+        if (/Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent)) {
+          console.log(navigator.userAgent);
+            window.location.replace("http://127.0.0.1:1111/blood/");
+        } else {
+          console.log(navigator.userAgent);
+        }
+    </script>
+
     <style>
-        .tape-img {
+      .tape-img {
       width: auto;
       height: 400px;
     }
@@ -26,7 +35,6 @@
       height: 440px;
     }
     </style>
-
 
 
     <body>
@@ -99,11 +107,12 @@
 
             function setTime() {
                 let now = new Date();
-                myTime.textContent = now.getUTCHours() +2 + ":" + now.getUTCMinutes();
+                myTime.textContent = now.getUTCHours() +2 + ":" + now.getUTCMinutes().toString().padStart('2', '0');
                 console.log("updated time");
             };
             setTime();
             setInterval(setTime, 1000);
+
         </script>
     </body>
 </html>

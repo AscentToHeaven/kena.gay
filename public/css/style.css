@@ -4,7 +4,7 @@
   color: white;
 }
 
-body {
+html {
   background-image: url(/assets/music.gif);
   background-size: cover;
   padding: 5px;
@@ -36,8 +36,6 @@ body {
   overflow: hidden;
   position: relative;
 
-  .pfp {
-    width: 128px;
     border: 3px solid black;
   }
 
