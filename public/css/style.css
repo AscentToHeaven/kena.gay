@@ -37,6 +37,7 @@ body {
   position: relative;
 
   .pfp {
+    width: 128px;
     border: 3px solid black;
   }
 
@@ -47,6 +48,18 @@ body {
     right: 0;
     top: 0;
     scale: 1.2;
+  }
+}
+
+#pfpAndTime {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(128px + 8px);
+  * { align-self: center}
+  #myTime {
+    margin-top: var(--default-padding-small);
   }
 }
 

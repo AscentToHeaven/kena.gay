@@ -9,6 +9,8 @@
   --default-padding-small: 5px;
   --default-padding-medium: 10px;
   --default-padding-large: 15px;
+  --faded-background: rgba(0, 0, 0, 0.5);
+  --faded-background-dark: rgba(0, 0, 0, 0.8);
 }
 /* CRT effect begin */
 @keyframes flicker {
@@ -142,7 +144,8 @@
     text-shadow: 2.6208764473832513px 0 1px rgba(0,30,255,0.5), -2.6208764473832513px 0 1px rgba(255,0,80,0.3), 0 0 3px;
   }
 }
-.crt::after {
+
+html::after {
   content: " ";
   display: block;
   position: absolute;
@@ -156,7 +159,7 @@
   pointer-events: none;
   animation: flicker 0.15s infinite;
 }
-.crt::before {
+html::before {
   content: " ";
   display: block;
   position: absolute;
@@ -169,7 +172,7 @@
   background-size: 100% 2px, 3px 100%;
   pointer-events: none;
 }
-.crt {
+html {
   animation: textShadow 1.6s infinite;
 }
 /* CRT effect end */
@@ -194,7 +197,29 @@
   animation: textShadow 1.6s infinite;
 }
 
-p, h1, h2, h3, h4, h5 {
+* {
   font-family: IBMVGA8;
   /* color: green; */
 }
+
+.has-tooltip {
+  position: relative;
+  * {
+    cursor: pointer;
+  }
+}
+
+.tooltip-box {
+  background: var(--faded-background-dark);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  display: none;
+  padding: var(--default-padding-medium);
+}
+
+/* .has-tooltip:hover .tooltip-box { */
+/*   display: inline; */
+/* } */

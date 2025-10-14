@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html>
+<html class="crt">
     <head>
       <meta charset="utf-8">
         <title>{{config.title}}</title>
@@ -25,15 +25,16 @@
       gap: 0px;
       height: 440px;
     }
-
     </style>
 
-    <body class="crt">
+
+
+    <body>
         <header><h1>Ascent to Heaven</h1></header> 
         <main>
             <div class="box main-page"><p>We are currently undergoing maintenence, check back at a later time</p></div>
             <div id="bio-box">
-                <div><img src="/assets/pfp.png" alt="Profile Photo" class="pfp"></div>
+                <div id="pfpAndTime"><img src="/assets/pfp.png" alt="Profile Photo" class="pfp"><div id="myTime"></div></div>
                 <img src="/assets/eva01.png" alt="" class="eva01">
                 <div id="bio-desc">
                     <h1>Kena</h1>
@@ -51,8 +52,12 @@
             </div>
             <div>
                 <div id="links-container-title-div">
-                    <h1>Friends of Kena</h1>
-                    <img src="/assets/nene88x31.png">
+                    <div class="has-tooltip"><h1 id="kenaImageDisplay">Friends of Kena</h1>
+                        <div class="tooltip-box" id="kenaImageDisplayTooltipbox">
+                            <h1>Hey! you can add my button to your own website if you'd like!</h1>
+                            <code>&lt;a href="https://kena.gay/"&gt;&lt;img src="https://kena.gay/assets/nene88x31.png" alt="kena.gay"&gt;&lt;/a&gt;</code>
+                        </div>
+                    </div>
                 </div>
                 <a href="https://kernelkitty.it/"><img src="https://kernelkitty.it/homePage/imgs/siteImages/kernelKitty88x31.webp"></a>
             </div>
@@ -60,5 +65,45 @@
         <div class="lyric">
             {{ section.content | safe }}
         </div>
+
+        <script>
+            const tooltip = document.getElementById('kenaImageDisplay');
+            const tooltipBox = document.getElementById('kenaImageDisplayTooltipbox');
+            let toggle = false;
+
+            document.addEventListener('click', (event) => {
+                if (tooltip.contains(event.target)) {
+                    toggle = toggleVisibility(tooltipBox, toggle);
+                    console.log("if");
+                } else if (tooltipBox.contains(event.target)) {
+                    tooltipBox.style.display = 'block';
+                    toggle = true;
+                    console.log("else");
+                } else {
+                    tooltipBox.style.display = 'none';
+                    toggle = false;
+                    console.log("else");
+                }
+            });
+
+            function toggleVisibility(thingToToggle, ToggleState) {
+                if (!ToggleState) {
+                    thingToToggle.style.display = 'block';
+                } else {
+                    thingToToggle.style.display = 'none';
+                }
+                return !ToggleState;
+            };
+
+            const myTime = document.getElementById('myTime');
+
+            function setTime() {
+                let now = new Date();
+                myTime.textContent = now.getUTCHours() +2 + ":" + now.getUTCMinutes();
+                console.log("updated time");
+            };
+            setTime();
+            setInterval(setTime, 1000);
+        </script>
     </body>
 </html>

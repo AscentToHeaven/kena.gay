@@ -27,6 +27,7 @@ body {
   img {
     width: var(--cover-width);
     height: var(--cover-width);
+    image-rendering: pixelated;
   }
 }
 
