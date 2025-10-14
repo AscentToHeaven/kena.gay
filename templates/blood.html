@@ -14,13 +14,6 @@ p, h1, h2, h3 {
 </style>
 
 <body id="blood-body" class="crt">
-  {% for p in section.pages %}
-  <div>
-    <h1>{{p.title}}</h1>
-    {{p.content | safe}}
-  </div>
-  {% endfor %}
-  {% block content %}
-  {% endblock content %}
+  {{ section.content | safe }}
 </body>
 </html> 
