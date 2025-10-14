@@ -30,14 +30,14 @@ html {
 #bio-box {
   /* margin: 5px; */
   padding: 10px;
-  border: 3px solid black;
+  border: 3px solid var(--border-color);
   width: 600px;
   background: rgba(18, 16, 16, 0.8);
   overflow: hidden;
   position: relative;
 
   .pfp {
-    border: 3px solid black;
+    border: 3px solid var(--border-color);
   }
 
   .eva01 {
@@ -66,4 +66,38 @@ html {
   display: flex;
   flex-direction: row;
   img { align-self: center; padding: var(--default-padding-medium) }
+}
+
+#warning {
+  padding: var(--default-padding-medium);
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(16, 12, 18, 0.9);
+  z-index: 1;
+
+  div {
+    margin: 20px;
+    border: 5px solid var(--border-color);
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: var(--default-padding-medium);
+    background-color: rgb(16, 12, 18);
+    width: 40vw;
+    align-self: center;
+    text-align: center;
+
+    #warning-button {
+      display: inline-block;
+      width: auto;
+      height: auto;
+      cursor: pointer;
+    }
+  }
 }

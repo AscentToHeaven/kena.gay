@@ -38,9 +38,14 @@
 
 
     <body>
-        <header><h1>Ascent to Heaven</h1></header> 
+        <div id="warning">
+            <div>
+                <h1>Ascent to Heaven</h1>
+                <p>We are currently undergoing maintenence, check back at a later time or proceed with caution!</p>
+                <div id="warning-button">Proceed</div>
+            </div>
+        </div>
         <main>
-            <div class="box main-page"><p>We are currently undergoing maintenence, check back at a later time</p></div>
             <div id="bio-box">
                 <div id="pfpAndTime"><img src="/assets/pfp.png" alt="Profile Photo" class="pfp"><div id="myTime"></div></div>
                 <img src="/assets/eva01.png" alt="" class="eva01">
@@ -68,6 +73,7 @@
                     </div>
                 </div>
                 <a href="https://kernelkitty.it/"><img src="https://kernelkitty.it/homePage/imgs/siteImages/kernelKitty88x31.webp"></a>
+                <a href="https://sourcoatedsugar.neocities.org/">Zephyr</a>
             </div>
         </main>
         <div class="lyric">
@@ -93,6 +99,21 @@
                     console.log("else");
                 }
             });
+
+            const warningButton = document.getElementById('warning-button');
+            const warning = document.getElementById('warning');
+
+            warningButton.addEventListener('click', () => {
+                toggleVisibility(warning, true);
+                sessionStorage.setItem('warningDismiss', true);
+            });
+
+            const warningStatus = sessionStorage.getItem('warningDismiss');
+
+            if (warningStatus) {
+                toggleVisibility(warning, true);
+            }
+
 
             function toggleVisibility(thingToToggle, ToggleState) {
                 if (!ToggleState) {
