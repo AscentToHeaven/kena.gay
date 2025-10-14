@@ -36,6 +36,7 @@ html {
   overflow: hidden;
   position: relative;
 
+  .pfp {
     border: 3px solid black;
   }
 
