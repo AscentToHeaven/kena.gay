@@ -9,8 +9,12 @@
   --default-padding-small: 5px;
   --default-padding-medium: 10px;
   --default-padding-large: 15px;
+  --default-section-padding-top: 25px;
+
   --faded-background: rgba(0, 0, 0, 0.5);
   --faded-background-dark: rgba(0, 0, 0, 0.8);
+
+  --blue-link-color: rgb(105, 205, 255);
   --border-color: rgb(143, 99, 231);
 }
 /* CRT effect begin */

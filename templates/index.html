@@ -16,27 +16,6 @@
         }
     </script>
 
-    <style>
-      .tape-img {
-      width: auto;
-      height: 400px;
-    }
-    
-    .tape-img:hover {
-      height: 440px;
-      filter:brightness(1.4);
-    }
-    
-    .tape-container {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-end;
-      gap: 0px;
-      height: 440px;
-    }
-    </style>
-
-
     <body>
         <div id="warning">
             <div>
@@ -54,21 +33,21 @@
                     <p>At the end of it all, we still remain.</p>
                 </div>
             </div>
-            <div>
+            <div class="section">
                 <h3>This is my music shelf, have yourself a browse</h3>
-                <div class="tape-container">
+                <div id="tape-container">
                     <a href="tapes/afut/"><img src="/assets/tape/afut.png" alt="" class="tape-img"></a>
                     <a href="tapes/forhow/"><img src="/assets/tape/forhow.png" alt="" class="tape-img"></a>
                     <a href="tapes/gwf/"><img src="/assets/tape/gwf.png" alt="" class="tape-img"></a>
                     <a href="tapes/doubinf/"><img src="/assets/tape/doubinf.png" alt="" class="tape-img"></a>
                 </div>
             </div>
-            <div>
+            <div class="section">
                 <div id="links-container-title-div">
                     <div class="has-tooltip"><h1 id="kenaImageDisplay">Friends of Kena</h1>
                         <div class="tooltip-box" id="kenaImageDisplayTooltipbox">
                             <h1>Hey! you can add my button to your own website if you'd like!</h1>
-                            <code>&lt;a href="https://kena.gay/"&gt;&lt;img src="https://kena.gay/assets/nene88x31.png" alt="kena.gay"&gt;&lt;/a&gt;</code>
+                            <code id="text-that-copes-to-clip">&lt;a href="https://kena.gay/"&gt;&lt;img src="https://kena.gay/assets/nene88x31.png" alt="kena.gay"&gt;&lt;/a&gt;</code>
                         </div>
                     </div>
                 </div>
@@ -115,13 +94,13 @@
             }
 
 
-            function toggleVisibility(thingToToggle, ToggleState) {
-                if (!ToggleState) {
+            function toggleVisibility(thingToToggle, toggleState) {
+                if (!toggleState) {
                     thingToToggle.style.display = 'block';
                 } else {
                     thingToToggle.style.display = 'none';
                 }
-                return !ToggleState;
+                return !toggleState;
             };
 
             const myTime = document.getElementById('myTime');
@@ -133,6 +112,13 @@
             };
             setTime();
             setInterval(setTime, 1000);
+
+            const imageClipCopy = document.getElementById('text-that-copes-to-clip');
+            imageClipCopy.addEventListener('click', () => {
+                navigator.clipboard.writeText('<a href="https://kena.gay/"><img src="https://kena.gay/assets/nene88x31.png" alt="kena.gay"></a>')
+                .then(() => console.log("Copied"))
+                .catch((error) => console.log(error));
+            });
 
         </script>
     </body>

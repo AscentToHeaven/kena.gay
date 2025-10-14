@@ -17,6 +17,25 @@ html {
   }
 }
 
+.tape-img {
+  width: auto;
+  height: 400px;
+  transition: filter 0.5s;
+}
+
+.tape-img:hover {
+  filter:brightness(1.6);
+}
+
+#tape-container {
+  display: inline-flex;
+}
+
+.section {
+  padding-top: var(--default-section-padding-top);
+  width: fit-content;
+}
+
 .lyric {
   position: absolute;
   z-index: -1;
@@ -100,4 +119,8 @@ html {
       cursor: pointer;
     }
   }
+}
+
+#text-that-copes-to-clip {
+  color: var(--blue-link-color);
 }
