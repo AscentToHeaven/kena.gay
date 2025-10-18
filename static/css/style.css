@@ -1,7 +1,7 @@
 @import 'basics.css';
 
 * {
-  color: white;
+  z-index: 1;
 }
 
 html {
@@ -44,16 +44,30 @@ html {
   opacity: 40%;
   top: 0;
   right: 0;
+  p {
+    color: var(--color-secondary);
+  }
+}
+
+
+#bio-parent {
+  position: relative;
+  width: 600px;
 }
 
 #bio-box {
-  /* margin: 5px; */
   padding: 10px;
   border: 3px solid var(--border-color);
-  width: 600px;
   background: rgba(18, 16, 16, 0.8);
   overflow: hidden;
   position: relative;
+
+  h1, p {
+    display: inline-flex; 
+    margin-top: var(--default-padding-small);
+    margin-bottom: 0px;
+    background-color: var(--faded-background);
+  }
 
   .pfp {
     border: 3px solid var(--border-color);
@@ -62,10 +76,8 @@ html {
   .eva01 {
     position: absolute;
     opacity: 0.6;
-    overflow: hidden;
     right: 0;
     top: 0;
-    scale: 1.2;
   }
 }
 
@@ -97,7 +109,7 @@ html {
   width: 100vw;
   height: 100vh;
   background-color: rgba(16, 12, 18, 0.9);
-  z-index: 1;
+  z-index: 1000;
 
   div {
     margin: 20px;
@@ -123,4 +135,30 @@ html {
 
 #text-that-copes-to-clip {
   color: var(--blue-link-color);
+}
+
+button {
+  background: unset;
+  border: none;
+}
+
+button::hover {
+  color: var(--color-secondary);
+}
+
+#enva {
+  position: absolute;
+  opacity: 1;
+  left: 0;
+  top: 0;
+  scale: 1;
+  z-index: -1;
+  width: 600px;
+}
+
+#contact {
+  position: absolute;
+  text-align: right;
+  top: var(--default-padding-small);
+  right: var(--default-padding-small);
 }

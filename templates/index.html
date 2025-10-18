@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html class="crt">
+<html class="crt" id="html">
     <head>
       <meta charset="utf-8">
         <title>{{config.title}}</title>
@@ -14,25 +14,52 @@
         } else {
           console.log(navigator.userAgent);
         }
+
     </script>
 
     <body>
+        <div id="glare"></div>
         <div id="warning">
             <div>
                 <h1>Ascent to Heaven</h1>
                 <p>We are currently undergoing maintenence, check back at a later time or proceed with caution!</p>
+                <p>!!!HUGE epilepsy warning!!!</p>
                 <div id="warning-button">Proceed</div>
             </div>
         </div>
         <main>
+            <div id="bio-parent">
+                <img class="float z10" src="/assets/gifs/line.gif" alt="">
             <div id="bio-box">
-                <div id="pfpAndTime"><img src="/assets/pfp.png" alt="Profile Photo" class="pfp"><div id="myTime"></div></div>
+                <div id="pfpAndTime"><img src="/assets/pfp.png" alt="Profile Photo" class="pfp"><p id="myTime"></p></div>
                 <img src="/assets/eva01.png" alt="" class="eva01">
+                <!-- <img src="/assets/enva.webp" alt="" id="enva"> -->
                 <div id="bio-desc">
                     <h1>Kena</h1>
                     <p>At the end of it all, we still remain.</p>
                 </div>
+                <div id="contact">
+                        <p>
+                        @kena4930:matrix.org <br>
+                        kena@kena.gay <br>
+                        </p>
+                </div>
             </div>
+                <img class="float z2" src="/assets/gifs/line.gif" alt="">
+            </div>
+            <button type="button" style="cursor: pointer; z-index: 20" onclick="
+                const hiddenState = localStorage.getItem('fx') === 'true';
+                const glare = document.getElementById('glare');
+
+                if (hiddenState) {
+                    glare.style.display = 'block';
+                } else {
+                    glare.style.display = 'none';
+                }
+
+                console.log(hiddenState);
+                localStorage.setItem('fx', !hiddenState);
+                "><p>Toggle blurr effect</p></button>
             <div class="section">
                 <h3>This is my music shelf, have yourself a browse</h3>
                 <div id="tape-container">
@@ -40,6 +67,7 @@
                     <a href="tapes/forhow/"><img src="/assets/tape/forhow.png" alt="" class="tape-img"></a>
                     <a href="tapes/gwf/"><img src="/assets/tape/gwf.png" alt="" class="tape-img"></a>
                     <a href="tapes/doubinf/"><img src="/assets/tape/doubinf.png" alt="" class="tape-img"></a>
+                    <a href="tapes/forhow/"><img src="/assets/tape/mercWorld.webp" alt="" class="tape-img"></a>
                 </div>
             </div>
             <div class="section">
@@ -60,6 +88,19 @@
         </div>
 
         <script>
+            const hiddenState = localStorage.getItem('fx') === 'true';
+            const glare = document.getElementById('glare');
+            toggleVisibility(glare, hiddenState)
+
+            function toggleVisibility(thingToToggle, toggleState) {
+                if (!toggleState) {
+                    thingToToggle.style.display = 'block';
+                } else {
+                    thingToToggle.style.display = 'none';
+                }
+                return !toggleState;
+            };
+
             const tooltip = document.getElementById('kenaImageDisplay');
             const tooltipBox = document.getElementById('kenaImageDisplayTooltipbox');
             let toggle = false;
@@ -67,15 +108,12 @@
             document.addEventListener('click', (event) => {
                 if (tooltip.contains(event.target)) {
                     toggle = toggleVisibility(tooltipBox, toggle);
-                    console.log("if");
                 } else if (tooltipBox.contains(event.target)) {
                     tooltipBox.style.display = 'block';
                     toggle = true;
-                    console.log("else");
                 } else {
                     tooltipBox.style.display = 'none';
                     toggle = false;
-                    console.log("else");
                 }
             });
 
@@ -94,21 +132,11 @@
             }
 
 
-            function toggleVisibility(thingToToggle, toggleState) {
-                if (!toggleState) {
-                    thingToToggle.style.display = 'block';
-                } else {
-                    thingToToggle.style.display = 'none';
-                }
-                return !toggleState;
-            };
-
             const myTime = document.getElementById('myTime');
 
             function setTime() {
                 let now = new Date();
                 myTime.textContent = now.getUTCHours() +2 + ":" + now.getUTCMinutes().toString().padStart('2', '0');
-                console.log("updated time");
             };
             setTime();
             setInterval(setTime, 1000);
