@@ -137,7 +137,14 @@
 
             function setTime() {
                 let now = new Date();
-                myTime.textContent = now.getUTCHours() +2 + ":" + now.getUTCMinutes().toString().padStart('2', '0');
+
+                const opts = {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false,
+                    timeZone: 'Europe/Stockholm',
+                };
+                myTime.textContent = new Intl.DateTimeFormat('en-GB', opts).format(now);
             };
             setTime();
             setInterval(setTime, 1000);
