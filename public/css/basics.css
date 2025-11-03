@@ -6,9 +6,11 @@
 :root {
   --cover-width: 400px;
   --border-width: 5px;
-  --default-padding-small: 5px;
-  --default-padding-medium: 10px;
-  --default-padding-large: 15px;
+  --default-padding-small: 0.5em;
+  --default-padding-medium: 1em;
+  --default-padding-medium-large: 1.5em;
+  --default-padding-large: 2em;
+  --default-padding-xl: 4em;
   --default-section-padding-top: 25px;
 
   --faded-background: rgba(0, 0, 0, 0.5);

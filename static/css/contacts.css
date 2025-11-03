@@ -21,17 +21,28 @@ main {
 }
 
 #mainBox {
-  padding: 1em;
+  position: relative;
+  padding: var(--default-padding-medium);
   border: 3px solid var(--border-color);
   background: var(--faded-background-dark);
   display: block;
   width: auto
 }
 
-.obj {
-  color: var(--color2);
+h2 {
+  margin-top: var(--default-padding-medium-large);
+  margin-bottom: var(--default-padding-small);
 }
 
-.cnt {
-  color: var(--color-primary);
+table {
+  padding: 0;
+}
+
+td {
+  padding-right: var(--default-padding-medium);
+}
+
+a, del {
+  position: absolute;
+  right: var(--default-padding-medium);
 }
