@@ -1,17 +1,22 @@
 @import 'basics.css';
 
-* {
-  z-index: 1;
-}
-
 html {
   background-image: url(/assets/music.gif);
   background-size: cover;
   padding: 5px;
+
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  display: block;
+  place-items: center;
+  height: 100vh;
 }
 
 .tapes {
-  text-align: center;
+  text-align: left;
   img {
     width: 200px;
   }
@@ -34,11 +39,16 @@ html {
 .section {
   padding-top: var(--default-section-padding-top);
   width: fit-content;
+
+  display: grid;
+  place-items: left;
 }
 
 .lyric {
   position: absolute;
-  z-index: -1;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
   text-align: right;
   font-size: 12px;
   opacity: 40%;
@@ -49,24 +59,21 @@ html {
   }
 }
 
-
-#bio-parent {
-  position: relative;
-  width: 600px;
-}
-
 #bio-box {
   padding: 10px;
   border: 3px solid var(--border-color);
   background: rgba(18, 16, 16, 0.8);
   overflow: hidden;
   position: relative;
+  width: 600px;
 
   h1, p {
     display: inline-flex; 
     margin-top: var(--default-padding-small);
     margin-bottom: 0px;
     background-color: var(--faded-background);
+    z-index: 2;
+    position: relative;
   }
 
   .pfp {
@@ -76,8 +83,13 @@ html {
   .eva01 {
     position: absolute;
     opacity: 0.6;
-    right: 0;
-    top: 0;
+    right: 0em;
+    top: 0em;
+    transform:translate(0%, -25%);
+    z-index: 1;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
   }
 }
 
@@ -91,6 +103,13 @@ html {
   #myTime {
     margin-top: var(--default-padding-small);
   }
+}
+
+#contact {
+  position: absolute;
+  text-align: right;
+  top: var(--default-padding-small);
+  right: var(--default-padding-small);
 }
 
 #links-container-title-div {
@@ -146,19 +165,3 @@ button::hover {
   color: var(--color-secondary);
 }
 
-#enva {
-  position: absolute;
-  opacity: 1;
-  left: 0;
-  top: 0;
-  scale: 1;
-  z-index: -1;
-  width: 600px;
-}
-
-#contact {
-  position: absolute;
-  text-align: right;
-  top: var(--default-padding-small);
-  right: var(--default-padding-small);
-}

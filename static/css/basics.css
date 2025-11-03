@@ -18,6 +18,8 @@
   --color-secondary: rgba(255, 128, 70, 1);
   --color0: rgba(255, 0, 0, 1);
   --color1: rgba(255, 128, 70, 1);
+  --color2: rgba(48, 225, 155, 1);
+
 
   --blue-link-color: rgb(105, 205, 255);
   --border-color: rgb(143, 99, 231);
@@ -160,21 +162,21 @@
   50% { text-shadow:var(--color-primary) 0 0 5px;}
   100% { text-shadow:var(--color-primary) 0 0 7px;}
 }
-a, li, p, h1, h2, h3, h4, h5, #warning-button {
+* {
   color: var(--color-primary)
 }
 
-a::selection,
-p::selection,
-li::selection,
-h1::selection,
-h2::selection,
-h3::selection,
-h4::selection,
-h5::selection,
-#warning-button::selection {
+*::selection {
   color: var(--color-secondary);
   background-color: var(--faded-background-dark);
+}
+
+input {
+  background-color: var(--faded-background);
+  border-width: 0px;
+  outline: none;
+  /* min-height: 1.5em; */
+  padding: 0.5em;
 }
 
 a {
@@ -244,8 +246,6 @@ html {
   position: absolute;
   overflow: visible;
   z-index: 1;
-  left: 50%;
-  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
