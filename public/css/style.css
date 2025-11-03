@@ -110,6 +110,10 @@ main {
   text-align: right;
   top: var(--default-padding-small);
   right: var(--default-padding-small);
+  font-size: 3rem;
+  z-index: 1;
+  color: var(--color1);
+  text-decoration: none;
 }
 
 #links-container-title-div {
