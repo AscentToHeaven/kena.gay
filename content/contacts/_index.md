@@ -17,4 +17,5 @@ template = "contacts.html"
 | Steam: | Kena | [link](https://steamcommunity.com/id/kenathe1/) |
 | Duet Night Abyss: | 4000431156431 | [link](https://duetnightabyss.dna-panstudio.com/#/home) |
 | Final Fantasy XIV: | Enva Misijasch @ Twintania | [link](https://eu.finalfantasyxiv.com/) |
+| League of Legends: | Kena#OwO | [link](https://www.leagueoflegends.com/en-gb/) |
 
