@@ -1,0 +1,49 @@
+@import 'basics.css';
+
+:root {
+  --cover-width: 400px;
+  --border-width: 5px;
+}
+
+* {
+  padding: 5px;
+}
+
+body {
+  display: flex;
+  justify-content: flex-start;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  color: white;
+}
+
+.cover {
+  border-width: 5px;
+  background-color: white;
+  width: calc(var(--cover-width) + calc(var(--border-width) * 2));
+  height: calc(var(--cover-width) + calc(var(--border-width) * 2));
+
+  img {
+    width: var(--cover-width);
+    height: var(--cover-width);
+    image-rendering: pixelated;
+  }
+}
+
+  blockquote {
+    color: #cccccc; 
+    font-style: italic;
+  }
+
+p, h1, h2, h3, h4 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.body-text {
+  padding-right: 40px;
+}
+
+#main-container {
+  display: flexbox;
+}
