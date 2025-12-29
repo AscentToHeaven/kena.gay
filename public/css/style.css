@@ -17,6 +17,7 @@ main {
 
 .tapes {
   text-align: left;
+
   img {
     width: 200px;
   }
@@ -29,7 +30,7 @@ main {
 }
 
 .tape-img:hover {
-  filter:brightness(1.6);
+  filter: brightness(1.6);
 }
 
 #tape-container {
@@ -54,6 +55,7 @@ main {
   opacity: 40%;
   top: 0;
   right: 0;
+
   p {
     color: var(--color-secondary);
   }
@@ -67,8 +69,9 @@ main {
   position: relative;
   width: 600px;
 
-  h1, p {
-    display: inline-flex; 
+  h1,
+  p {
+    display: inline-flex;
     margin-top: var(--default-padding-small);
     margin-bottom: 0px;
     background-color: var(--faded-background);
@@ -85,7 +88,7 @@ main {
     opacity: 0.6;
     right: 0em;
     top: 0em;
-    transform:translate(0%, -25%);
+    transform: translate(0%, -25%);
     z-index: 1;
     user-select: none;
     -moz-user-select: none;
@@ -99,7 +102,11 @@ main {
   justify-content: center;
   flex-direction: column;
   width: calc(128px + 8px);
-  * { align-self: center}
+
+  * {
+    align-self: center
+  }
+
   #myTime {
     margin-top: var(--default-padding-small);
   }
@@ -119,7 +126,11 @@ main {
 #links-container-title-div {
   display: flex;
   flex-direction: row;
-  img { align-self: center; padding: var(--default-padding-medium) }
+
+  img {
+    align-self: center;
+    padding: var(--default-padding-medium)
+  }
 }
 
 #warning {
@@ -168,4 +179,3 @@ button {
 button::hover {
   color: var(--color-secondary);
 }
-

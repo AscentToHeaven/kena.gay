@@ -411,6 +411,10 @@ html {
   z-index: 10;
 }
 
+.playing {
+  text-align: center;
+}
+
 #playing-box {
   top: 0.5em;
   left: 50vw;
