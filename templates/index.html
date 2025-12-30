@@ -29,19 +29,6 @@
     </div>
   </div>
   <main>
-    <div id="bio-parent">
-      <div id="bio-box">
-        <div id="pfpAndTime"><img src="/assets/pfp.png" alt="Profile Photo" class="pfp">
-          <p id="myTime"></p>
-        </div>
-        <img id="evangelion-no" src="/assets/eva01.png" alt="" class="eva01 float">
-        <div id="bio-desc">
-          <h1>Kena</h1>
-          <p>At the end of it all, we still remain.</p>
-        </div>
-        <a id="contact" href="./contacts/">@</a>
-      </div>
-    </div>
     <button type="button" style="cursor: pointer; z-index: 20" onclick="
         const hiddenState = localStorage.getItem('fx') === 'true';
         const glare = document.getElementById('glare');
@@ -55,14 +42,29 @@
         console.log(hiddenState);
         localStorage.setItem('fx', !hiddenState);
         ">
-      <p>Toggle blurr effect</p>
+      Toggle blurr effect
     </button>
-    <div id="playing-box" class="float">
-      <h2 class="playing">I'm currently playing</h2>
-      <h3 class="playing" id="playing">untitled 04</h3>
+    <div id="bio-parent">
+      <div id="bio-box">
+        <div id="pfpAndTime"><img src="/assets/pfp.png" alt="Profile Photo" class="pfp">
+          <p id="myTime"></p>
+        </div>
+        <img id="evangelion-no" src="/assets/eva01.png" alt="" class="eva01 float">
+        <div id="bio-desc">
+          <h1>Kena</h1>
+          <p>At the end of it all, we still remain.</p>
+        </div>
+        <a id="contact" href="./contacts/">@</a>
+      </div>
+      <div id="playing-box">
+        <h2 class="playing">I'm currently playing</h2>
+        <a href="./saoirse/">
+          <h3 class="playing" id="playing" style="color: rgba(255, 128, 70, 1);">untitled 04</h3>
+        </a>
+      </div>
     </div>
     <div class="section">
-      <h3>This is my music shelf, have yourself a browse</h3>
+      <h3>This is my music shelf, have yourself a browse<br>(under construction)</h3>
       <div id="tape-container">
         <a href="tapes/afut/"><img src="/assets/tape/afut.png" alt="" class="tape-img"></a>
         <a href="tapes/forhow/"><img src="/assets/tape/forhow.png" alt="" class="tape-img"></a>

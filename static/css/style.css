@@ -61,13 +61,20 @@ main {
   }
 }
 
+#bio-parent {
+  display: grid;
+  column-gap: var(--default-padding-medium);
+  /* grid-template-columns: auto auto; */
+  border: 3px solid rgv(255, 0, 0);
+}
+
 #bio-box {
   padding: 10px;
   border: 3px solid var(--border-color);
   background: rgba(18, 16, 16, 0.8);
   overflow: hidden;
   position: relative;
-  width: 600px;
+  width: 35em;
 
   h1,
   p {
@@ -178,4 +185,29 @@ button {
 
 button::hover {
   color: var(--color-secondary);
+}
+
+.center {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--default-padding-medium);
+}
+
+.box {
+  border: 3px solid var(--border-color);
+  background: var(--faded-background-dark);
+
+  .highlight {
+    color: var(--color2)
+  }
+}
+
+.chartWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.chartContainer {
+  text-align: center;
 }

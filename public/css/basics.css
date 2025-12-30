@@ -218,6 +218,7 @@
   color: var(--color-primary)
 }
 
+
 *::selection {
   color: var(--color-secondary);
   background-color: var(--faded-background-dark);
@@ -232,7 +233,8 @@ input {
 }
 
 a {
-  color: var(--blue-link-color);
+  text-decoration: none;
+  color: var(--color-secondary);
 }
 
 html::after {
@@ -376,11 +378,11 @@ html {
   }
 
   90% {
-    backdrop-filter: blur(1.1px);
+    backdrop-filter: blur(0.1px);
   }
 
   95% {
-    backdrop-filter: blur(0.8px);
+    backdrop-filter: blur(0.7px);
   }
 
   100% {
@@ -404,11 +406,11 @@ html {
 }
 
 .z5 {
-  z-index: 10;
+  z-index: 5;
 }
 
 .z2 {
-  z-index: 10;
+  z-index: 2;
 }
 
 .playing {
@@ -416,11 +418,11 @@ html {
 }
 
 #playing-box {
-  top: 0.5em;
-  left: 50vw;
-  transform: translate(-50%, 0%);
+  padding: 10px;
+  margin-top: var(--default-padding-medium);
   border: 3px solid var(--border-color);
-  background-color: rgb(16, 12, 18);
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+  background: rgba(18, 16, 16, 0.8);
+  overflow: hidden;
+  position: relative;
+  width: 35em;
 }
