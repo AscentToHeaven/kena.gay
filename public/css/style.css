@@ -196,6 +196,7 @@ button::hover {
 .box {
   border: 3px solid var(--border-color);
   background: var(--faded-background-dark);
+  margin: var(--default-padding-medium);
 
   .highlight {
     color: var(--color2)
@@ -210,4 +211,29 @@ button::hover {
 
 .chartContainer {
   text-align: center;
+}
+
+table {
+  width: 100%;
+  text-align: start;
+  table-layout: fixed;
+  padding: var(--default-padding-medium);
+}
+
+td:nth-child(1) {
+  width: 10%;
+}
+
+td:nth-child(2) {
+  width: 15%;
+}
+
+td:nth-child(3) {
+  text-align: center;
+  width: 20%;
+}
+
+td:nth-child(4) {
+  text-align: end;
+  width: 15%
 }

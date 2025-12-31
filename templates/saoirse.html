@@ -9,8 +9,8 @@
 
 <html>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0">
-</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 
 <body>
   <div style="text-align: center;">
@@ -31,30 +31,83 @@
         <p id="trackArtist">Magdalena Bay</p>
       </div>
     </div>
-  </div>
 
-  <div style="text-align: center;">
-    <h1>Period Reports</h1>
-    <div class="center charts">
-      <div class="chartContainer box">
-        <h1>Weekly</h1>
-        <div class="chartWrapper"><canvas id="weekly" class="chart"></canvas></div>
-      </div>
+    <div style="text-align: center;">
+      <h1>Period Reports</h1>
+      <div class="center charts">
+        <div class="chartContainer box">
+          <h1>Weekly</h1>
+          <div class="chartWrapper"><canvas id="weekly" class="chart"></canvas></div>
+        </div>
 
-      <div class="chartContainer box">
-        <h1>Monthly</h1>
-        <div class="chartWrapper"><canvas id="monthly" class="chart"></canvas></div>
-      </div>
+        <div class="chartContainer box">
+          <h1>Monthly</h1>
+          <div class="chartWrapper"><canvas id="monthly" class="chart"></canvas></div>
+        </div>
 
-      <div class="chartContainer box">
-        <h1>Yearly</h1>
-        <div class="chartWrapper"><canvas id="yearly" class="chart"></canvas></div>
+        <div class="chartContainer box">
+          <h1>Yearly</h1>
+          <div class="chartWrapper"><canvas id="yearly" class="chart"></canvas></div>
+        </div>
       </div>
     </div>
+
+    <div class="box">
+      <h1>All the music I've played this year.</h1>
+      <input id="searchBar" type="text" name="Search" placeholder="Search...">
+      <nav id="records">
+        <table>
+          <thead>
+            <tr>
+              <td>
+                <h3 style="text-decoration: underline;">Artist</h3>
+              </td>
+              <td>
+                <h3 style="text-decoration: underline;">Album</h3>
+              </td>
+              <td>
+                <h3 style="text-decoration: underline;">Track</h3>
+              </td>
+              <td>
+                <h3 style="text-decoration: underline;">Date</h3>
+              </td>
+            <tr>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
+        </table>
+      </nav>
+    </div>
   </div>
+
 </body>
 
 <script>
+  function buildRows(data) {
+    const fragment = document.createDocumentFragment();
+
+    data.forEach(item => {
+      const tr = document.createElement("tr");
+
+      const artist = document.createElement("td");
+      artist.textContent = item.artist;
+
+      const album = document.createElement("td");
+      album.textContent = item.album;
+
+      const track = document.createElement("td");
+      track.textContent = item.track;
+
+      const date = document.createElement("td");
+      date.textContent = item.date;
+
+      tr.append(artist, album, track, date);
+      fragment.appendChild(tr);
+    });
+
+    return fragment;
+  }
+
   async function setTop() {
     try {
       const albumRes = await fetch('https://saoirse.kena.gay/top/album/kena');
@@ -199,6 +252,33 @@
         return acc;
       }, {});
 
+      const searcher = document.getElementById("tbody")
+      searcher.appendChild(buildRows(yearly))
+
+      const searchInput = document.getElementById('searchBar');
+      const tocItems = document.querySelectorAll('#tbody tr');
+
+      const normalize = str => str.toLowerCase().trim();
+
+      const getSearchableText = li => {
+        let txt = li.textContent;
+        const extra = li.dataset.keywords;
+        if (extra) txt += ' ' + extra;
+
+        return normalize(txt);
+      };
+
+      const filterToc = () => {
+        const query = normalize(searchInput.value);
+        tocItems.forEach(li => {
+          const matches = getSearchableText(li).includes(query);
+          li.style.display = matches ? '' : 'none';
+          console.log("updated list");
+        });
+      };
+
+      searchInput.addEventListener('input', filterToc);
+
       const sorted = Object.entries(artistCounts_unsorted)
         .filter(([_, count]) => count >= 5)
         .sort((a, b) => b[1] - a[1]);
@@ -237,6 +317,7 @@
           }
         }
       });
+
       console.log(yearly);
     } catch (err) {
       console.error(err);
