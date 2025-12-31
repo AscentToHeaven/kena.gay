@@ -14,19 +14,19 @@
 
 <body>
   <div class="center charts">
-    <div class="chartContainer">
+    <div class="chartContainer box">
       <h1>Weekly Report</h1>
-      <div class="chartWrapper"><canvas id="weekly"></canvas></div>
+      <div class="chartWrapper"><canvas id="weekly" class="chart"></canvas></div>
     </div>
 
-    <div class="chartContainer">
+    <div class="chartContainer box">
       <h1>Monthly Report</h1>
-      <div class="chartWrapper"><canvas id="monthly"></canvas></div>
+      <div class="chartWrapper"><canvas id="monthly" class="chart"></canvas></div>
     </div>
 
-    <div class="chartContainer">
+    <div class="chartContainer box">
       <h1>Yearly Report</h1>
-      <div class="chartWrapper"><canvas id="yearly"></canvas></div>
+      <div class="chartWrapper"><canvas id="yearly" class="chart"></canvas></div>
     </div>
   </div>
   <div style="text-align: center;">
@@ -93,10 +93,18 @@
           labels: Object.keys(artistCounts),
           datasets: [{
             hoverOffset: 50,
+            backgroundColor: [
+              'rgba(245, 108, 60, 1)',
+              'rgba(235, 158, 80, 1)',
+              'rgba(250, 148, 70, 1)',
+              'rgba(235, 128, 60, 1)',
+              'rgba(245, 118, 60, 1)',
+            ],
             data: Object.values(artistCounts)
           }]
         },
         options: {
+          borderColor: 'rgb(143, 99, 231)',
           responsive: true,
           maintainAspectRatio: false,
           layout: {
@@ -137,10 +145,18 @@
           labels: Object.keys(artistCounts),
           datasets: [{
             hoverOffset: 50,
+            backgroundColor: [
+              'rgba(28, 225, 135, 1)',
+              'rgba(38, 255, 175, 1)',
+              'rgba(48, 185, 145, 1)',
+              'rgba(48, 225, 135, 1)',
+              'rgba(18, 185, 155, 1)',
+            ],
             data: Object.values(artistCounts)
           }]
         },
         options: {
+          borderColor: 'rgb(143, 99, 231)',
           responsive: true,
           maintainAspectRatio: false,
           layout: {
@@ -180,11 +196,19 @@
         data: {
           labels: Object.keys(artistCounts),
           datasets: [{
+            backgroundColor: [
+              'rgb(105, 205, 255)',
+              'rgb(100, 215, 245)',
+              'rgb(125, 245, 205)',
+              'rgb(115, 225, 235)',
+              'rgb(125, 235, 225)'
+            ],
             hoverOffset: 50,
             data: Object.values(artistCounts)
           }]
         },
         options: {
+          borderColor: 'rgb(143, 99, 231)',
           responsive: true,
           maintainAspectRatio: false,
           layout: {
