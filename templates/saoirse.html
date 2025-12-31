@@ -13,36 +13,42 @@
 </script>
 
 <body>
-  <div class="center charts">
-    <div class="chartContainer box">
-      <h1>Weekly Report</h1>
-      <div class="chartWrapper"><canvas id="weekly" class="chart"></canvas></div>
-    </div>
-
-    <div class="chartContainer box">
-      <h1>Monthly Report</h1>
-      <div class="chartWrapper"><canvas id="monthly" class="chart"></canvas></div>
-    </div>
-
-    <div class="chartContainer box">
-      <h1>Yearly Report</h1>
-      <div class="chartWrapper"><canvas id="yearly" class="chart"></canvas></div>
-    </div>
-  </div>
   <div style="text-align: center;">
     <h1>All Time</h1>
     <div class="center">
       <div class="box">
         <h2>Favourite Album</h2>
         <h3 class="highlight" id="album">Marcurial World</h3>
+        <p id="albumArtist">Magdalena Bay</p>
       </div>
       <div class="box">
-        <h2>Favourite Artist</h2>
-        <h3 class="highlight" id="artist">Magdalena bay</h3>
+        <h1>Favourite Artist</h2>
+          <h2 class="highlight" id="artist">Magdalena Bay</h3>
       </div>
       <div class="box">
         <h2>Favourite Track</h2>
         <h3 class="highlight" id="track">Killing Time</h3>
+        <p id="trackArtist">Magdalena Bay</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <h1>Period Reports</h1>
+    <div class="center charts">
+      <div class="chartContainer box">
+        <h1>Weekly</h1>
+        <div class="chartWrapper"><canvas id="weekly" class="chart"></canvas></div>
+      </div>
+
+      <div class="chartContainer box">
+        <h1>Monthly</h1>
+        <div class="chartWrapper"><canvas id="monthly" class="chart"></canvas></div>
+      </div>
+
+      <div class="chartContainer box">
+        <h1>Yearly</h1>
+        <div class="chartWrapper"><canvas id="yearly" class="chart"></canvas></div>
       </div>
     </div>
   </div>
@@ -51,21 +57,25 @@
 <script>
   async function setTop() {
     try {
-      const artistRes = await fetch('https://saoirse.kena.gay/top/artist/kena');
       const albumRes = await fetch('https://saoirse.kena.gay/top/album/kena');
+      const artistRes = await fetch('https://saoirse.kena.gay/top/artist/kena');
       const trackRes = await fetch('https://saoirse.kena.gay/top/track/kena');
 
-      let artist = await artistRes.json();
       let album = await albumRes.json();
+      let artist = await artistRes.json();
       let track = await trackRes.json();
 
-      let headArtist = document.getElementById('artist')
       let headAlbum = document.getElementById('album')
+      let headAlbumArtist = document.getElementById('albumArtist')
+      let headArtist = document.getElementById('artist')
       let headTrack = document.getElementById('track')
+      let headTrackArtist = document.getElementById('trackArtist')
 
-      headArtist.textContent = artist.artist;
       headAlbum.textContent = album.album;
+      headAlbumArtist.textContent = album.artist;
+      headArtist.textContent = artist.artist;
       headTrack.textContent = track.track;
+      headTrackArtist.textContent = track.artist;
     } catch (err) {
       console.error(err);
     }
@@ -81,6 +91,7 @@
       }, {});
 
       const sorted = Object.entries(artistCounts_unsorted)
+        .filter(([_, count]) => count >= 3)
         .sort((a, b) => b[1] - a[1]);
       const artistCounts = Object.fromEntries(sorted);
 
@@ -126,6 +137,7 @@
     try {
       const response = await fetch('https://saoirse.kena.gay/monthly/kena');
       const monthly = await response.json();
+
       const artistCounts_unsorted = monthly.reduce((acc, item) => {
         const artist = item.artist;
         acc[artist] = (acc[artist] || 0) + 1;
@@ -133,7 +145,10 @@
       }, {});
 
       const sorted = Object.entries(artistCounts_unsorted)
+        .filter(([_, count]) => count >= 5)
         .sort((a, b) => b[1] - a[1]);
+
+
       const artistCounts = Object.fromEntries(sorted);
 
 
@@ -185,9 +200,10 @@
       }, {});
 
       const sorted = Object.entries(artistCounts_unsorted)
+        .filter(([_, count]) => count >= 5)
         .sort((a, b) => b[1] - a[1]);
-      const artistCounts = Object.fromEntries(sorted);
 
+      const artistCounts = Object.fromEntries(sorted);
 
       const ctx = document.getElementById('yearly');
 
@@ -226,6 +242,7 @@
       console.error(err);
     }
   }
+
   setTop();
   loadWeekly();
   loadMonthly();
