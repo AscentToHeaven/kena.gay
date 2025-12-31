@@ -53,7 +53,7 @@
     </div>
 
     <div class="box">
-      <h1>All the music I've played this year.</h1>
+      <h1>All the music I've played this month.</h1>
       <input id="searchBar" type="text" name="Search" placeholder="Search...">
       <nav id="records">
         <table>
@@ -197,13 +197,47 @@
         return acc;
       }, {});
 
+      const searcher = document.getElementById("tbody")
+      searcher.appendChild(buildRows(monthly.reverse()))
+
+      const searchInput = document.getElementById('searchBar');
+      const rows = Array.from(document.querySelectorAll('#records tr'));
+
+      const normalize = str => str.toLowerCase().trim();
+
+      const getSearchableText = li => {
+        let txt = (li.textContent);
+        const extra = li.dataset.keywords;
+        if (extra) txt += ' ' + extra;
+
+        return normalize(txt);
+      };
+
+      const debounce = (fn, delay = 150) => {
+        let t;
+        return (...args) => {
+          clearTimeout(t);
+          t = setTimeout(() => fn(...args), delay);
+        };
+      };
+
+      const filterToc = () => {
+        const query = normalize(searchInput.value);
+
+        for (const tr of rows) {
+          const matches = getSearchableText(tr).includes(query);
+          tr.style.display = matches ? '' : 'none';
+        }
+      };
+
+      searchInput.addEventListener('input', filterToc);
+
       const sorted = Object.entries(artistCounts_unsorted)
         .filter(([_, count]) => count >= 5)
         .sort((a, b) => b[1] - a[1]);
 
 
       const artistCounts = Object.fromEntries(sorted);
-
 
       const ctx = document.getElementById('monthly');
 
@@ -251,33 +285,6 @@
         acc[artist] = (acc[artist] || 0) + 1;
         return acc;
       }, {});
-
-      const searcher = document.getElementById("tbody")
-      searcher.appendChild(buildRows(yearly))
-
-      const searchInput = document.getElementById('searchBar');
-      const tocItems = document.querySelectorAll('#tbody tr');
-
-      const normalize = str => str.toLowerCase().trim();
-
-      const getSearchableText = li => {
-        let txt = li.textContent;
-        const extra = li.dataset.keywords;
-        if (extra) txt += ' ' + extra;
-
-        return normalize(txt);
-      };
-
-      const filterToc = () => {
-        const query = normalize(searchInput.value);
-        tocItems.forEach(li => {
-          const matches = getSearchableText(li).includes(query);
-          li.style.display = matches ? '' : 'none';
-          console.log("updated list");
-        });
-      };
-
-      searchInput.addEventListener('input', filterToc);
 
       const sorted = Object.entries(artistCounts_unsorted)
         .filter(([_, count]) => count >= 5)
