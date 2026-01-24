@@ -21,7 +21,7 @@ window.sample = function sample() {
 
 window.loadWeekly = async function loadWeekly() {
   try {
-    const weekly = await fetch('https://saoirse.kena.gay/weekly/kena', {
+    const weekly = await fetch('https://saoirse.kena.gay/weekly', {
       headers: {
         "Authorization": "taQxLOXXnwOZNMOi"
       }
@@ -55,7 +55,11 @@ window.loadWeekly = async function loadWeekly() {
 
 window.loadMonthly = async function loadMonthly() {
   try {
-    const monthly = await fetch('https://saoirse.kena.gay/monthly/kena').then((data) => data.json());
+    const monthly = await fetch('https://saoirse.kena.gay/monthly', {
+      headers: {
+        "Authorization": "taQxLOXXnwOZNMOi"
+      }
+    }).then((data) => data.json());
     const artistCounts = sortedCount(monthly);
 
     formatTime(monthly, 'playtimeMonthly');
@@ -120,7 +124,11 @@ window.loadMonthly = async function loadMonthly() {
 
 window.loadYearly = async function loadYearly() {
   try {
-    const yearly = await fetch('https://saoirse.kena.gay/yearly/kena').then((data) => data.json());
+    const yearly = await fetch('https://saoirse.kena.gay/yearly', {
+      headers: {
+        "Authorization": "taQxLOXXnwOZNMOi"
+      }
+    }).then((data) => data.json());
     const artistCounts = sortedCount(yearly);
 
     formatTime(yearly, 'playtimeYearly');
@@ -150,14 +158,26 @@ window.loadYearly = async function loadYearly() {
 
 window.setTop = async function setTop() {
   try {
-    const albumRes = await fetch('https://saoirse.kena.gay/top/album/kena').then((data) => data.json());
+    const albumRes = await fetch('https://saoirse.kena.gay/top/album', {
+      headers: {
+        "Authorization": "taQxLOXXnwOZNMOi"
+      }
+    }).then((data) => data.json());
     document.getElementById('album').textContent = albumRes.album;
     document.getElementById('albumArtist').textContent = albumRes.artist
 
-    const artistRes = await fetch('https://saoirse.kena.gay/top/artist/kena').then((data) => data.json());
+    const artistRes = await fetch('https://saoirse.kena.gay/top/artist/', {
+      headers: {
+        "Authorization": "taQxLOXXnwOZNMOi"
+      }
+      }).then((data) => data.json());
     document.getElementById('artist').textContent = albumRes.artist
 
-    const trackRes = await fetch('https://saoirse.kena.gay/top/track/kena').then((data) => data.json());
+    const trackRes = await fetch('https://saoirse.kena.gay/top/track/', {
+      headers: {
+        "Authorization": "taQxLOXXnwOZNMOi"
+      }
+    }).then((data) => data.json());
     document.getElementById('track').textContent = trackRes.track;
     document.getElementById('trackArtist').textContent = trackRes.artist
 

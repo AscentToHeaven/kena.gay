@@ -1,7 +1,7 @@
-function timeToSec(timeString) {
-  const [hh, mm, ss] = timeString.split(':').map(Number);
-  return hh * 3600 + mm * 60 + ss;
-};
+// function timeToSec(timeString) {
+//   const [hh, mm, ss] = timeString.split(':').map(Number);
+//   return hh * 3600 + mm * 60 + ss;
+// };
 
 function secToTime(sec) {
   const h = Math.floor(sec / 3600);
@@ -16,9 +16,9 @@ export function formatTime(array, elId) {
   const element = document.getElementById(elId);
 
   const playtime = secToTime(array.reduce((acc, record) => {
-    let runtime = record.runtime
+    let runtime = record.playtime
     if (runtime !== null) {
-      acc += timeToSec(runtime);
+      acc += runtime;
     }
     return acc;
   }, 0))
