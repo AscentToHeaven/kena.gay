@@ -21,7 +21,11 @@ window.sample = function sample() {
 
 window.loadWeekly = async function loadWeekly() {
   try {
-    const weekly = await fetch('https://saoirse.kena.gay/weekly/kena').then((data) => data.json());
+    const weekly = await fetch('https://saoirse.kena.gay/weekly/kena', {
+      headers: {
+        "Authorization": "taQxLOXXnwOZNMOi"
+      }
+    }).then((data) => data.json());
     const artistCounts = sortedCount(weekly);
 
     formatTime(weekly, 'playtimeWeekly');
