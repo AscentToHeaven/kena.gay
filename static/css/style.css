@@ -67,6 +67,7 @@ main {
   opacity: 40%;
   top: 0;
   right: 0;
+  overflow: hidden;
 
   p {
     color: var(--color-secondary);

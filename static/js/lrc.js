@@ -22,10 +22,11 @@ async function setLyric(lyric) {
         console.error("Cannot set lyrics, querySelector found null");
     }
 }
-function setPlaying(track, artist) {
+async function setPlaying(track, artist) {
     let playing = document.getElementById('playing');
     if (playing) {
-        playing.textContent = `${track} - ${artist}`;
+        let line = `${track} - ${artist}`;
+        await typewriter(playing, line, 15);
     }
 }
 async function getLyric(data) {
