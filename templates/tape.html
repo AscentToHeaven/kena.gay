@@ -1,36 +1,36 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>{{ section.title }}</title>
-    <link rel="stylesheet" href="/css/tapes.css">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ section.title }}</title>
+  <link rel="stylesheet" href="/css/tapes.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
 </head>
 
-  <style>
+<style>
+  body {
+    background-image: url('{{ get_url(path=section.extra.background_image) }}');
+  }
+</style>
 
-    body {
-      background-image: url('{{ get_url(path=section.extra.background_image) }}');
-    }
-  </style>
-
-  <body class="crt">
-    <div id="main-container">
-      <div class="cover">
-        <img src="{{ get_url(path=section.extra.tape_cover) }}" alt="">
-      </div>
-      <div>
-        {{ section.content | safe }}
-      </div>
+<body class="crt">
+  <div id="main-container">
+    <div class="cover">
+      <img src="{{ get_url(path=section.extra.tape_cover) }}" alt="">
     </div>
     <div>
-      <h1>{{ section.title }} - {{ section.extra.artist }}</h1>
-    {% for page in section.pages %}
-      <div class="body-text">
-        {{ page.content | safe }}
-      </div>
-    {% endfor %}
+      {{ section.content | safe }}
     </div>
-  </body>
+  </div>
+  <div>
+    <h1>{{ section.title }} - {{ section.extra.artist }}</h1>
+    {% for page in section.pages %}
+    <div class="body-text">
+      {{ page.content | safe }}
+    </div>
+    {% endfor %}
+  </div>
+</body>
 
-</html> 
+</html>

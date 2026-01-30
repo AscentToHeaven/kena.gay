@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>{{section.title}}</title>
-    <link rel="stylesheet" href="/css/contacts.css">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
-  </head>
 
-  <body>
-    <main>
-      <div id="mainBox">
-        <h1>This is where you can find me</h1>
-        <input
-          id="searchBar"
-          type="text"
-          name="Search"
-          placeholder="Search...">
-          <nav id="infos">
-            {{ section.content | safe }}
-          </nav>
-      </div>
-    </main>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>{{section.title}}</title>
+  <link rel="stylesheet" href="/css/contacts.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+</head>
 
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+<body>
+  <main>
+    <div id="mainBox">
+      <h1>This is where you can find me</h1>
+      <input id="searchBar" type="text" name="Search" placeholder="Search...">
+      <nav id="infos">
+        {{ section.content | safe }}
+      </nav>
+    </div>
+  </main>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-      const searchInput = document.getElementById('searchBar');
-      const tocItems    = document.querySelectorAll('#infos tr');
-  
-      const normalize = str => str.toLowerCase().trim();
-  
-      const getSearchableText = li => {
-          let txt = li.textContent;
-          const extra = li.dataset.keywords;
-          if (extra) txt += ' ' + extra;
-  
-          return normalize(txt);
-      };
-  
-      const filterToc = () => {
-          const query = normalize(searchInput.value);
-          tocItems.forEach(li => {
-              const matches = getSearchableText(li).includes(query);
-              li.style.display = matches ? '' : 'none';
-          });
-      };
-  
-      searchInput.addEventListener('input', filterToc);
+    const searchInput = document.getElementById('searchBar');
+    const tocItems = document.querySelectorAll('#infos tr');
+
+    const normalize = str => str.toLowerCase().trim();
+
+    const getSearchableText = li => {
+      let txt = li.textContent;
+      const extra = li.dataset.keywords;
+      if (extra) txt += ' ' + extra;
+
+      return normalize(txt);
+    };
+
+    const filterToc = () => {
+      const query = normalize(searchInput.value);
+      tocItems.forEach(li => {
+        const matches = getSearchableText(li).includes(query);
+        li.style.display = matches ? '' : 'none';
+      });
+    };
+
+    searchInput.addEventListener('input', filterToc);
   });
 </script>
+
 </html>

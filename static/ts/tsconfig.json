@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "ES2020",
+    "lib": [
+      "DOM",
+      "ES2017"
+    ],
+    "moduleResolution": "bundler",
+    "outDir": "../js",
+    "strict": true
+  }
+}

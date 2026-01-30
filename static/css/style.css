@@ -45,6 +45,18 @@ main {
   place-items: left;
 }
 
+.typewriter-cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 .lyric {
   position: absolute;
   user-select: none;

@@ -11,7 +11,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
-<script type="module" src="/js/saoirse.js"></script>
+<script type="module" src="{{ get_url(path='js/saoirse_1.js')}}"></script>
 
 <body>
   <div style="text-align: center;">
@@ -83,23 +83,6 @@
       </nav>
     </div>
   </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.sample) {
-        sample();
-        setTop();
-        loadWeekly();
-        loadMonthly();
-        loadYearly();
-      } else {
-        console.log("sample unloaded");
-      }
-    });
-
-  </script>
-
 </body>
-
 
 </html>
