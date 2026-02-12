@@ -11,7 +11,19 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js"></script>
-<script type="module" src="{{ get_url(path='js/saoirse.js')}}"></script>
+<script type="module" src="/js/saoirse.js"></script>
+
+
+{% if section.extra.background_image %}
+
+<style>
+  html {
+    background-image: url('{{ get_url(path=section.extra.background_image) }}');
+    background-size: cover;
+  }
+</style>
+
+{% endif %}
 
 <body>
   <div style="text-align: center;">

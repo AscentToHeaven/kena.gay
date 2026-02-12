@@ -49,13 +49,11 @@ async function getLyric(data: any) {
   return lrcData;
 }
 
-// GET /api/get?artist_name=Borislav+Slavov&track_name=I+Want+to+Live&album_name=Baldur%27s+Gate+3+(Original+Game+Soundtrack)&duration=233
-
 async function fetchLastt() {
   try {
     const response = await fetch('https://saoirse.kena.gay/last', {
       headers: {
-        "Authorization": "taQxLOXXnwOZNMOi"
+        "x-read-key": "taQxLOXXnwOZNMOi"
       }
     });
     if (!response.ok) throw new Error('Network response was not ok');

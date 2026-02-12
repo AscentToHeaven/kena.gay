@@ -1,6 +1,8 @@
 +++
 title="Contacts"
 template = "contacts.html"
+[extra]
+background="/assets/bg/congrats.gif"
 +++
 
 

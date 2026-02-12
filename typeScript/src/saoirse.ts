@@ -24,6 +24,10 @@ const chartOpts = {
     }
 }
 
+const key = {
+      headers: {
+        "x-read-key": "taQxLOXXnwOZNMOi"
+}};
 
 function sample() {
   console.log("Sample works");
@@ -31,11 +35,7 @@ function sample() {
 
 async function loadWeekly() {
   try {
-    const weekly = await fetch('https://saoirse.kena.gay/weekly', {
-      headers: {
-        "Authorization": "taQxLOXXnwOZNMOi"
-      }
-    }).then((data) => data.json());
+    const weekly = await fetch('https://saoirse.kena.gay/weekly', key).then((data) => data.json());
     const artistCounts = sortedCount(weekly);
 
     formatTime(weekly, 'playtimeWeekly');
@@ -65,11 +65,7 @@ async function loadWeekly() {
 
 async function loadMonthly() {
   try {
-    const monthly = await fetch('https://saoirse.kena.gay/monthly', {
-      headers: {
-        "Authorization": "taQxLOXXnwOZNMOi"
-      }
-    }).then((data) => data.json());
+    const monthly = await fetch('https://saoirse.kena.gay/monthly', key).then((data) => data.json());
     const artistCounts = sortedCount(monthly);
 
     formatTime(monthly, 'playtimeMonthly');
@@ -132,11 +128,7 @@ async function loadMonthly() {
 
 async function loadYearly() {
   try {
-    const yearly = await fetch('https://saoirse.kena.gay/yearly', {
-      headers: {
-        "Authorization": "taQxLOXXnwOZNMOi"
-      }
-    }).then((data) => data.json());
+    const yearly = await fetch('https://saoirse.kena.gay/yearly', key).then((data) => data.json());
     const artistCounts = sortedCount(yearly);
 
     formatTime(yearly, 'playtimeYearly');
@@ -166,30 +158,18 @@ async function loadYearly() {
 
 async function setTop() {
   try {
-    const albumRes = await fetch('https://saoirse.kena.gay/top/album', {
-      headers: {
-        "Authorization": "taQxLOXXnwOZNMOi"
-      }
-    }).then((data) => data.json());
+    const albumRes = await fetch('https://saoirse.kena.gay/top/album', key).then((data) => data.json());
     let al = document.getElementById('album');
     if (al) al.textContent = albumRes.album;
     let aa = document.getElementById('albumArtist');
     if (aa) aa.textContent = albumRes.artist;
 
-    const artistRes = await fetch('https://saoirse.kena.gay/top/artist/', {
-      headers: {
-        "Authorization": "taQxLOXXnwOZNMOi"
-      }
-      }).then((data) => data.json());
+    const artistRes = await fetch('https://saoirse.kena.gay/top/artist/', key).then((data) => data.json());
 
     let ar = document.getElementById('artist');
     if (ar) ar.textContent = albumRes.artist;
 
-    const trackRes = await fetch('https://saoirse.kena.gay/top/track/', {
-      headers: {
-        "Authorization": "taQxLOXXnwOZNMOi"
-      }
-    }).then((data) => data.json());
+    const trackRes = await fetch('https://saoirse.kena.gay/top/track/', key).then((data) => data.json());
     let tr = document.getElementById('track');
     if (tr) tr.textContent = trackRes.track;
     let ta = document.getElementById('trackArtist')

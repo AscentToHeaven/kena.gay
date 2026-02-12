@@ -1,7 +1,7 @@
 @import 'basics.css';
 
 body {
-  background-image: url("/assets/adam.jpg");
+  /* background-image: url("/assets/adam.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -42,7 +42,8 @@ td {
   padding-right: var(--default-padding-medium);
 }
 
-a, del {
+a,
+del {
   position: absolute;
   right: var(--default-padding-medium);
 }
